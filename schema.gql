@@ -1,0 +1,121 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Users {
+  _id: String!
+  email: String!
+  name: String!
+  password: String!
+  role: String!
+  stack: [String!]
+  sideInfo: String
+  projects: [String!]
+}
+
+type Invite {
+  _id: String!
+  email: String!
+  role: String!
+  expiryDate: Float
+}
+
+type Report {
+  _id: String!
+  projectName: String!
+  taskName: String!
+  taskDescription: String
+  status: String!
+  author: String!
+  dateOfReport: DateTime
+  sideInfo: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  reports: [Report!]!
+  report(id: String!): Report!
+  authorsReports(author: String!): [Report!]!
+  findInvitiationById(id: String!): Invite!
+  findAllInvitations: [Invite!]!
+  findAllUsers: [Users!]!
+  findUserByID(id: String!): Users!
+  findUserByEmail(email: String!): Users!
+  findAllUsersByRole(role: String!): [Users!]!
+}
+
+type Mutation {
+  createReport(createReportInput: CreateReportInput!): Report!
+  updateReport(updateReportInput: UpdateReportInput!): Report!
+  removeReport(id: Int!): Report!
+  CreateInvitation(invitationData: CreateInviteDto!): Invite!
+  CreateNewUser(usersData: CreateUsersDto!): Users!
+  deleteUser(_id: String!): Users!
+}
+
+input CreateReportInput {
+  """name of project you worked in"""
+  projectName: String!
+
+  """title of task that you need to do"""
+  taskName: String!
+
+  """idea that you should implement"""
+  taskDescription: String!
+
+  """current status of your task"""
+  status: String!
+
+  """your name"""
+  author: String!
+
+  """date of sended reports"""
+  dateOfReport: DateTime
+
+  """optional information"""
+  sideInfo: String!
+}
+
+input UpdateReportInput {
+  """name of project you worked in"""
+  projectName: String
+
+  """title of task that you need to do"""
+  taskName: String
+
+  """idea that you should implement"""
+  taskDescription: String
+
+  """current status of your task"""
+  status: String
+
+  """your name"""
+  author: String
+
+  """date of sended reports"""
+  dateOfReport: DateTime
+
+  """optional information"""
+  sideInfo: String
+  _id: String!
+}
+
+input CreateInviteDto {
+  email: String!
+  role: String!
+  expiryDate: Float
+}
+
+input CreateUsersDto {
+  email: String!
+  name: String!
+  password: String!
+  role: String!
+  stack: [String!]
+  sideInfo: String
+  projects: [String!]
+}

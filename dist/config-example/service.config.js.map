@@ -1,0 +1,1 @@
+{"version":3,"file":"service.config.js","sourceRoot":"","sources":["../../config-example/service.config.ts"],"names":[],"mappings":";;AAAA,2CAA4C;AAC5C,kBAAe,IAAA,mBAAU,EAAC,SAAS,EAAE,GAAG,EAAE,CAAC,CAAC;IAC1C,WAAW,EAAE,eAAe;IAC5B,IAAI,EAAE,OAAO,CAAC,GAAG,CAAC,SAAS,IAAI,MAAM;CACtC,CAAC,CAAC,CAAC"}
